@@ -6,4 +6,4 @@ If you are unable to run Jupyter notebooks on your computer, a non-interactive H
 
 Questions/comments/corrections: [email Kaleb Nyquist](mailto:contact@kalebnyquist.me)
 
-!()[./images/demopicture.png]
+![](./images/demopicture.png)
