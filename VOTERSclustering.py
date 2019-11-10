@@ -43,7 +43,7 @@ def performance_per_no_clusters(data_to_cluster, no_clusters):
         aggclus = AgglomerativeClustering(linkage = "ward", n_clusters=k)
         aggclus.fit(data_to_cluster)
         cluster_assignments = aggclus.fit_predict(data_to_cluster)
-        cluster_assignments_list.append(cluster_assignments_list)
+        cluster_assignments_list.append(cluster_assignments)
         silhouette_scores.append(silhouette_score(data_to_cluster, cluster_assignments))
         calinski_harabasz_scores.append(calinski_harabasz_score(data_to_cluster, cluster_assignments))
     cluster_performance_plots(silhouette_scores, calinski_harabasz_scores, no_clusters)
@@ -79,6 +79,7 @@ def create_full_data_clusters(reconstituted_voters_data, clusters):
     for cluster in clusters:
         full_data_cluster = pd.merge(reconstituted_voters_data, cluster, how='inner', left_index=True, right_index=True)
         full_data_clusters.append(full_data_cluster)
+    print("🗃️🔺✨ Cluster assignments merged with original dataset, expanded by weight.")
     return full_data_clusters
 
 def get_cluster_assignments(voters_data, no_of_clusters, dendrogram_generate = True):
